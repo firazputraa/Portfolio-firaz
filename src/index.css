@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import "tailwindcss";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+body{
+    font-family: 'Averia Sans Libre', sans-serif;
+}
+
+.nav-item-gradient-hover {
+  color: white; /* Warna default teks */
+  transition: all 0.3s ease; /* Transisi halus untuk efek hover */
+}
+
+.nav-item-gradient-hover:hover {
+  background: linear-gradient(to right, #91C8E4, #00CAFF, #008ec2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Tambahkan juga untuk menu mobile jika ingin efek serupa */
+.nav-item-mobile-gradient-hover {
+  color: white; /* Warna default teks */
+  transition: all 0.3s ease;
+}
+
+.nav-item-mobile-gradient-hover:hover {
+  background: linear-gradient(to right, #91C8E4, #00CAFF, #008ec2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  /* Pastikan background hover di mobile tidak menutupi gradient */
+  background-color: transparent !important;
+}
