@@ -1,12 +1,50 @@
 // src/components/Navbar.jsx
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import React, { useState } from 'react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Fungsi untuk mendapatkan kelas navigasi desktop
+  const getNavLocation = (path) => {
+    // Kelas dasar untuk item navigasi desktop
+    let classes = "nav-item-gradient-hover";
+
+    // Periksa jika jalur saat ini cocok dengan jalur tautan
+    const isActive = location.pathname === path;
+
+    // Tambahkan kelas aktif jika sedang di halaman tersebut
+    if (isActive) {
+      // Perhatikan penggunaan 'text-[#067aff]' yang benar (dengan '#')
+      classes += " font-bold text-[#067aff] border-b-2 border-[#067aff]";
+    }
+
+    return classes;
+  };
+
+  // Fungsi untuk mendapatkan kelas navigasi mobile
+  const getNavLocationMobile = (path) => {
+    // Kelas dasar untuk item navigasi mobile
+    // Kelas 'block py-3 px-4 w-full text-center border-b border-sky-800 last:border-b-0'
+    // ini adalah kelas tata letak yang harus selalu ada pada item mobile.
+    let classes = "block py-3 px-4 w-full text-center border-b border-sky-800 last:border-b-0 nav-item-mobile-gradient-hover";
+
+    // Periksa jika jalur saat ini cocok dengan jalur tautan
+    const isActive = location.pathname === path;
+
+    // Tambahkan kelas aktif jika sedang di halaman tersebut
+    if (isActive) {
+      // Untuk mobile, kita bisa tambahkan latar belakang dan teks tebal
+      // Perhatikan penggunaan 'text-[#067aff]' yang benar (dengan '#')
+      classes += " font-bold text-[#067aff] bg-sky-800";
+    }
+
+    return classes;
   };
 
   return (
@@ -19,11 +57,11 @@ const Navbar = () => {
 
         {/* Menu Desktop (sembunyi di mobile/tablet) */}
         <nav className="hidden md:flex space-x-6 text-lg md:text-xl lg:text-2xl">
-          <Link to="/" className="nav-item-gradient-hover">Home</Link>
-          <Link to="/about" className="nav-item-gradient-hover">About</Link>
-          <a href="#" className="nav-item-gradient-hover">Certificate</a>
-          <a href="#" className="nav-item-gradient-hover">Project</a>
-          <a href="#" className="nav-item-gradient-hover">Contact</a>
+          <Link to="/" className={getNavLocation('/')}>Home</Link>
+          <Link to="/about" className={getNavLocation('/about')}>About</Link>
+          <Link to="/certificate" className={getNavLocation('/certificate')}>Certificate</Link>
+          <Link to="/project" className={getNavLocation('/project')}>Project</Link>
+          <Link to="/contact" className={getNavLocation('/contact')}>Contact</Link>
         </nav>
 
         {/* Tombol Hamburger (hanya tampil di mobile/tablet) */}
@@ -47,11 +85,11 @@ const Navbar = () => {
       {/* Menu Navigasi Mobile (muncul/sembunyi berdasarkan state isMenuOpen) */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-full left-0 w-full bg-sky-950 shadow-lg z-20 transform transition-all duration-300 ease-in-out`}>
         <nav className="flex flex-col items-center py-4 text-lg md:text-xl lg:text-2xl">
-          <Link to="/" className="block py-3 px-4 w-full text-center border-b border-sky-800 last:border-b-0 nav-item-mobile-gradient-hover">Home</Link>
-          <Link to="/about" className="block py-3 px-4 w-full text-center border-b border-sky-800 last:border-b-0 nav-item-mobile-gradient-hover">About</Link>
-          <a href="#" className="block py-3 px-4 w-full text-center border-b border-sky-800 last:border-b-0 nav-item-mobile-gradient-hover">Certificate</a>
-          <a href="#" className="block py-3 px-4 w-full text-center border-b border-sky-800 last:border-b-0 nav-item-mobile-gradient-hover">Project</a>
-          <a href="#" className="block py-3 px-4 w-full text-center nav-item-mobile-gradient-hover">Contact</a>
+          <Link to="/" className={getNavLocationMobile('/')}>Home</Link>
+          <Link to="/about" className={getNavLocationMobile('/about')}>About</Link>
+          <Link to="/certificate" className={getNavLocationMobile('/certificate')}>Certificate</Link>
+          <Link to="/project" className={getNavLocationMobile('/project')}>Project</Link>
+          <Link to="/contact" className={getNavLocationMobile('/contact')}>Contact</Link>
         </nav>
       </div>
     </header>

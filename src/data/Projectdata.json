@@ -2,13 +2,13 @@
   {
     "id": 1,
     "image": "/images/project1.1.png",
-    "title": "Aplikasi Gudang Sepatu Berbasis Desktop",
+    "title": "Aplikasi gudang sepatu berbasis desktop",
     "description": "Aplikasi ini bertujuan untuk mempermudah pengelolaan stok sepatu di gudang, termasuk pencatatan masuk dan keluar barang, serta laporan stok."
   },
   {
     "id": 2,
     "image": "/images/project2.1.png",
-    "title": "Website App Story",
+    "title": "Website app story",
     "description": "Website ini dirancang untuk menampilkan berbagai cerita menarik, dengan fitur lokasi yang dapat dilihat oleh pengguna. " 
   },
   {
@@ -20,7 +20,7 @@
   {
     "id": 4,
     "image": "../public/images/project4.1.PNG",
-    "title": "Website Bookshelf App",
+    "title": "Website bookshelf app",
     "description": "Website ini berfungsi sebagai aplikasi rak buku digital, memungkinkan pengguna untuk menambahkan, mengedit, dan menghapus buku dari rak mereka. Fitur pencarian juga disediakan untuk memudahkan pengguna menemukan buku yang diinginkan."
   }
 ]

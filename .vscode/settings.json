@@ -1,0 +1,6 @@
+{
+  "editor.fontSize": 17,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "'Montserrat', 'Open Sans'"
+}
